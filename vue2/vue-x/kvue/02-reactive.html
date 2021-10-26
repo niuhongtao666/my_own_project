@@ -1,0 +1,31 @@
+<div id="app"></div>
+<script>
+    function defineReactive(obj,key,val){
+        Object.defineProperty(obj,key,{
+            get(){
+                return val;
+            },
+            set(newVal){
+                if(val!=newVal){
+                    val=newVal;
+                    update();
+                }
+            }
+        })
+    }
+    let obj={};
+    defineReactive(obj,'foo','');
+    obj.foo=new Date().toLocaleTimeString();
+    setInterval(()=>{
+        obj.foo=new Date().toLocaleTimeString();
+    },1000);
+    //给多个属性加上响应式
+    function observe(obj) {
+        if(typeof obj !=='object'||obj==null){
+            
+        }
+    }
+    function update() {
+        app.innerHTML=obj.foo;
+    }
+</script>
