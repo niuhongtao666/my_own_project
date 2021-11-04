@@ -6,13 +6,14 @@
 <script src="kvue.js"></script>
 
 <script>
-    const app=new Vue({
-        el:"#app",
-        data:{
-            counter:1
+    const app = new KVue({
+        el: "#app",
+        data: {
+            counter: 1
         }
     });
     setInterval(() => {
-        app.counter++;
+        // app.$data.counter++;//因为代理Proxy的使用,换成了app.counter++;
+        // app.counter++;
     }, 1000);
 </script>
